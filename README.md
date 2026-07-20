@@ -21,6 +21,15 @@ odin build .
 ## wasm
 - https://vtraik.github.io/breakin/
 
+## Controls
+
+|keys|description|
+|---|---|
+|<kbd>←</kbd>/<kbd>→</kbd>|move bar left/right|
+|<kbd>p</kbd>|toggle pause|
+|<kbd>SPACE</kbd>|release the ball|
+|<kbd>q</kbd>|quit|
+
 ## References
 - https://en.wikipedia.org/wiki/Linear_interpolation
 - https://emscripten.org/docs/getting_started/index.html
