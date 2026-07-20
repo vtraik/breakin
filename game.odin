@@ -497,7 +497,7 @@ draw :: proc (alpha: f32) {
     // render curtain
     if curtain > 0.0 {
         cc: r.Color = r.GetColor(BACKROUND_COLOR);
-        cc.a = cast(u8) (curtain * 255.0); // TODO: might change this
+        cc.a = cast(u8) (curtain * 255.0);
         r.DrawRectangle(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, cc);
     }
 
@@ -510,19 +510,17 @@ draw :: proc (alpha: f32) {
     #partial switch (game_state.state) {
         case .START:
             mes: cstring = "Press left or right arrow to move";
-            mes_len: i32 = r.MeasureText(mes, 50);
-            r.DrawText(mes, (WINDOW_WIDTH-mes_len)/2, WINDOW_HEIGHT/2, 50, r.LIGHTGRAY);
+            mes_len: i32 = r.MeasureText(mes, 40);
+            r.DrawText(mes, (WINDOW_WIDTH-mes_len)/2, WINDOW_HEIGHT/2, 40, r.LIGHTGRAY);
         case .GAME_OVER, .VICTORY:
             if !show_prompt do break;
-            mes: cstring;
-            if game_state.state == .GAME_OVER do mes = "Game Over";
-            else do mes = "Victory !"
-            mes_len: i32 = r.MeasureText(mes, 50);
-            r.DrawText(mes, (WINDOW_WIDTH-mes_len)/2, WINDOW_HEIGHT/2, 50, r.LIGHTGRAY);
+            mes: cstring = (game_state.state == .GAME_OVER) ? "Game Over" : "Victory !";
+            mes_len: i32 = r.MeasureText(mes, 60);
+            r.DrawText(mes, (WINDOW_WIDTH-mes_len)/2, WINDOW_HEIGHT/2 - 40, 60, r.LIGHTGRAY);
 
-            mes = "\npress space to restart";
-            mes_len = r.MeasureText(mes, 50);
-            r.DrawText(mes, (WINDOW_WIDTH-mes_len)/2, WINDOW_HEIGHT/2, 50, r.LIGHTGRAY);
+            mes = "Press SPACE to restart";
+            mes_len = r.MeasureText(mes, 30);
+            r.DrawText(mes, (WINDOW_WIDTH-mes_len)/2, WINDOW_HEIGHT/2 + 30, 30, r.GRAY);
     }
 }
 
