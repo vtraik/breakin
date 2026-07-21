@@ -18,7 +18,7 @@ odin build .
 > Only tested on: odin version dev-2026-07-nightly:819fdc7
 
 
-## wasm
+## Wasm
 - https://vtraik.github.io/breakin/
 
 ## Controls
