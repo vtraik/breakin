@@ -6,36 +6,36 @@ import r "vendor:raylib"
 // TODO: get them to seperate file (.conf)
 
 // window params
-WINDOW_WIDTH    :: 1600
-WINDOW_HEIGHT   :: 900
+WINDOW_WIDTH    :: 1600;
+WINDOW_HEIGHT   :: 900;
 GRID_WIDTH      :: f32(TARGET_COLS) * TARGET_WIDTH +
                         f32(TARGET_COLS - 1) * PAD_X;
-NAME            :: "ODINOUT"
-TICK_RATE       :: 1.0 / 120.0
+NAME            :: "ODINOUT";
+TICK_RATE       :: 1.0 / 120.0;
 curtain      : f32 = 0.0;  // 0.0 = clear, 1.0 = backround_color
 fade_out_dur : f32 = 2.0;  // Seconds to fade to black
 fade_in_dur  : f32 = 1.0;  // Seconds to fade back into the game
 show_prompt  := false;
 
 // game params height
-BAR_WIDTH  : f32 : 100.0
-BAR_HEIGHT : f32 : 20.0
-BAR_COLOR  : u32 : 0x3B82F6FF
-BAR_SPEED  : f32 : 800.0
+BAR_WIDTH  : f32 : 100.0;
+BAR_HEIGHT : f32 : 20.0;
+BAR_COLOR  : u32 : 0x3B82F6FF;
+BAR_SPEED  : f32 : 800.0;
 // -----------------------
-TARGET_WIDTH    : f32 : 100.0
-TARGET_HEIGHT   : f32 : 20.0
-TARGET_ROWS     : int : 10
-TARGET_COLS     : int : 10
-PAD_Y           : f32 : 20
-PAD_X           : f32 : 20
+TARGET_WIDTH    : f32 : 100.0;
+TARGET_HEIGHT   : f32 : 20.0;
+TARGET_ROWS     : int : 10;
+TARGET_COLS     : int : 10;
+PAD_Y           : f32 : 20;
+PAD_X           : f32 : 20;
 // -----------------------
-BACKROUND_COLOR : u32 : 0x000000FF
+BACKROUND_COLOR : u32 : 0x000000FF;
 // -----------------------
-BALL_WIDTH      : f32 : BAR_WIDTH / 4
-BALL_HEIGHT     : f32 : 20.0
-BALL_COLOR      : u32 : 0xFFFFFFFF
-BALL_SPEED      : f32 : 500.0
+BALL_WIDTH      : f32 : BAR_WIDTH / 4;
+BALL_HEIGHT     : f32 : 20.0;
+BALL_COLOR      : u32 : 0xFFFFFFFF;
+BALL_SPEED      : f32 : 500.0;
 // -----------------------
 game_state : ^GameState = nil;
 ball_prev: r.Rectangle;
@@ -43,7 +43,7 @@ bar_prev: r.Rectangle;
 ball: Ball;
 bar: Bar;
 targets: ^[TARGET_ROWS * TARGET_COLS]Target;
-PART_SIZE :: 256
+PART_SIZE :: 256;
 particles: [PART_SIZE]Particle;
 
 Target :: struct {
@@ -65,7 +65,7 @@ State :: enum {
     START, // shows mess , waiting until move
     READY, // waiting until space is pressed
     RESTART, // restarts the game
-    GAME_OVER, // when ball hits the floor
+    GAME_OVER, // when ball hits the floor 3 times
     VICTORY, // all targets are eliminated
     UPDATE // normal update while playing
 }
