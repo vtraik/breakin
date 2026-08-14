@@ -81,11 +81,6 @@ FadeType :: enum {
     FADE_OUT
 }
 
-Arrow :: enum {
-    LEFT,
-    RIGHT
-}
-
 Ball :: struct {
     rect: r.Rectangle,
     vel: r.Vector2,
